@@ -6,8 +6,6 @@
 
 ## Step 1: Breaking Down the Requirement
 
-| Feature | Why |
-|--------------|
 | Shorten a URL | Core functionality |
 | Redirect with tracking | | Core + analytics |
 | Click analytics | Explicitly requested |
