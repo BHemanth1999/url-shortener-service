@@ -10,7 +10,6 @@
 |------|-----|
 | Start command | `python main.py` |
 | Interactive UI | `http://localhost:8000/docs` (Swagger) |
-| No external setup | No Docker, no database install, no cloud |
 | Works on | Any machine with Python 3.11+ |
 
 ### Accepts a Requirement → Produces Structured Outputs
@@ -206,14 +205,6 @@
 | Malicious URL blocked | Sent malware.com | ✓ Returns 409 |
 | Safe URL allowed | Sent google.com | ✓ Returns 201 |
 
-#### Trade-offs Documented
-
-| Decision | Pro | Con |
-|----------|-----|-----|
-| IP-based rate limit | Simple, no auth needed | VPN users can bypass |
-| Static blocklist | No external API, works offline | List gets outdated |
-| No authentication | Easy to use | Anyone can create URLs |
-
 ---
 
 ## Deliverable 4: Setup Instructions
@@ -245,88 +236,4 @@ python main.py
 python -m pytest tests/ -v
 ```
 
-### Steps to Evaluate
-
-| What to Evaluate | Where to Look |
-|------------------|---------------|
-| Code quality | `app/` folder (4 files) |
-| API design | `http://localhost:8000/docs` (live) |
-| Test coverage | `tests/test_api.py` |
-| Documentation | `docs/` folder |
-| Architecture | `docs/SUBMISSION_OVERVIEW.md` |
-
-### Fresh Start (Before Demo)
-
-```bash
-# Delete old test data
-rm -rf data
-
-# Start fresh
-python main.py
-```
-
 ---
-
-## Deliverable 5: Testing Approach
-
-### How Correctness Was Validated
-
-| Method | What It Tests | Tool |
-|--------|--------------|------|
-| Syntax check | All files parse correctly | `py_compile` |
-| Unit tests | Each function in isolation | `pytest` |
-| Integration tests | Full request → response flow | `pytest` + `TestClient` |
-| Manual testing | End-to-end user experience | Swagger UI |
-| Edge case testing | Limits, boundaries, invalid input | Custom test cases |
-
-### Test Coverage by Feature
-
-| Feature | # Tests | Edge Cases Covered |
-|---------|:-------:|-------------------|
-| Create URL | 3 | Valid, invalid format, duplicate code |
-| Redirect | 2 | Existing code, non-existing code |
-| Analytics | 1 | Click count accuracy |
-| List URLs | 1 | Pagination |
-| Delete | 2 | Existing, non-existing |
-| Click limit | 4 | Within limit, at limit, over limit, no limit |
-| Expiration | 2 | Before expiry, after expiry |
-| Password | 5 | No password, wrong, correct, unlock endpoint |
-| Bulk create | 2 | Valid batch, invalid URL in batch |
-| Rate limiting | 1 | Exceeds 10 requests |
-| URL blocking | 2 | Malicious domain, safe domain |
-| **Total** | **26** | — |
-
-### How Test Isolation Works
-
-```python
-# Each test gets a fresh database (no interference between tests)
-@pytest.fixture(autouse=True)
-def fresh_db():
-    # Delete old database
-    # Create new tables
-    # Run test
-    # Clean up
-```
-
-### Known Limitations
-
-| Limitation | Why It's Acceptable | How to Fix in Production |
-|------------|-------------------|--------------------------|
-| SQLite (not scalable) | Demo scope, works perfectly for evaluation | Swap to PostgreSQL |
-| No authentication | Simplifies demo and testing | Add OAuth2 / API keys |
-| Static URL blocklist (4 domains) | Demonstrates the concept | Integrate VirusTotal API |
-| Rate limit bypassed with VPN | IP-based is simplest approach | Add token-based auth + Redis |
-| No HTTPS | Running locally | Add Nginx + SSL certificate |
-| No load testing | Out of scope for demo | Add Locust / k6 tests |
-
-### Quality Assurance Summary
-
-| QA Area | Status |
-|---------|--------|
-| All features work end-to-end | ✓ Verified in Swagger UI |
-| All 26 tests pass | ✓ `pytest tests/ -v` |
-| No SQL injection possible | ✓ Parameterized queries |
-| Passwords never stored plain | ✓ SHA-256 hashed |
-| Bad input rejected | ✓ Pydantic validation |
-| Proper HTTP status codes | ✓ 201, 204, 302, 401, 403, 404, 409, 422, 429 |
-| Code is modular and readable | ✓ 3-layer architecture |
