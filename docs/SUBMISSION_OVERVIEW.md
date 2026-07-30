@@ -4,8 +4,6 @@
 
 A **URL Shortener Service** — a web application that converts long URLs into short, trackable links with access control and analytics.
 
-**Think of it like:** Bitly + security features (password protection, click limits, malicious URL blocking).
-
 ---
 
 ## Assignment Requirements → Where to Find Them
@@ -16,9 +14,6 @@ A **URL Shortener Service** — a web application that converts long URLs into s
 | 2 | Task Decomposition (Engineer-Led) | [docs/APPROACH.md](APPROACH.md) → Step 2 (task table with sequence) |
 | 3 | AI-Assisted Development | [docs/AI_USAGE.md](AI_USAGE.md) → Full breakdown of AI usage per task |
 | 4 | Engineering Output (code, APIs, tests, docs) | Source code in `app/`, tests in `tests/`, docs in `docs/` |
-| 5 | Validation and Quality Assurance | [docs/AI_USAGE.md](AI_USAGE.md) → Validation Checklist section |
-| 6 | Risk Awareness | [docs/DECISIONS.md](DECISIONS.md) → Trade-offs and Known Limitations |
-| 7 | Final Engineering Output | This document + all docs/ files together |
 
 ---
 
@@ -122,7 +117,6 @@ hemanth/
 ├── docs/                    ← DOCUMENTATION
 │   ├── SUBMISSION_OVERVIEW.md  ← THIS FILE (start reading here)
 │   ├── APPROACH.md          ← How I broke down the problem
-│   ├── DECISIONS.md         ← Key decisions and trade-offs
 │   ├── AI_USAGE.md          ← How AI tools helped (and what I fixed)
 │   └── SCENARIOS.md         ← 3 scenario examples with test instructions
 │
@@ -149,16 +143,11 @@ Step 4:  pytest tests/ -v                   (run all 26 tests)
 - **Features:** 12 features covering all 3 scenario types
 - **Tests:** 26 automated tests, all passing
 - **Architecture:** 3-layer (Routes → Service → Database)
-- **AI Usage:** AI accelerated boilerplate work; engineer made all decisions and caught 6 AI mistakes
-- **Documentation:** 5 docs explaining approach, decisions, AI usage, scenarios, and this overview
 
 ---
 
-## Reading Order (for evaluators)
+## Reading Order
 
-1. **Start here** → This file (SUBMISSION_OVERVIEW.md)
-2. **Run the app** → Follow README.md setup steps
-3. **See the process** → docs/APPROACH.md
-4. **See AI usage** → docs/AI_USAGE.md
-5. **See scenarios** → docs/SCENARIOS.md
-6. **See trade-offs** → docs/DECISIONS.md
+1. **Run the app** → Follow README.md setup steps
+2. **See the process** → docs/APPROACH.md
+3. **See AI usage** → docs/AI_USAGE.md
