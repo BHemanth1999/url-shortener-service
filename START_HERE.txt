@@ -1,0 +1,5 @@
+Where to start:
+
+  Non-technical?  Read → docs/EXECUTIVE_SUMMARY.md
+  Technical?      Read → docs/SUBMISSION_OVERVIEW.md
+  Want to run it? Read → README.md
