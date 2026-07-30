@@ -5,16 +5,12 @@
 > "Build a scalable URL shortener service with APIs, persistence, and analytics."
 
 ## Step 1: Breaking Down the Requirement
-
-| Shorten a URL | Core functionality |
-| Redirect with tracking | | Core + analytics |
-| Click analytics | Explicitly requested |
-| Click limit | Controlled distribution (brownfield) |
-| URL expiration | Time-limited links (brownfield) |
-| Password protection | Secure document sharing (brownfield) |
-| Bulk creation | Marketing team efficiency |
-| Rate limiting | Prevent abuse (security) |
-| URL blocking | Prevent malicious links (security) |
+- **Shorten a URL** 
+- **Bulk creation** 
+- **Analytics** 
+- **Delete URL** 
+- **Password Protection** 
+- **Rate Limiting**
 
 
 ## Step 2: Architecture
@@ -38,13 +34,3 @@ Database (database.py)  → SQLite queries, data storage
 - **Input validation** using Pydantic
 - **Security features** (rate limiting, URL blocking, password hashing)
 - **Auto-generated API docs** at `/docs` (Swagger UI)
-
-## Step 4: What I Would Add for Production
-
-- Authentication (API keys per user)
-- Redis cache for hot URLs
-- PostgreSQL instead of SQLite
-- Background job to clean expired URLs
-- Docker containerization
-- Monitoring & alerting
-- HTTPS termination
