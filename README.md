@@ -51,7 +51,6 @@ Long URL ──→ [ URL Shortener ] ──→ Short Link + Analytics
 | 7 | **Password** | Only people with password can access | `"password": "secret"` |
 | 8 | **Bulk Create** | Create up to 50 links at once | POST `/api/urls/bulk` |
 | 9 | **Rate Limit** | Blocks spam (max 10 requests/min) | Auto-enforced |
-| 10 | **URL Blocking** | Rejects malicious/phishing domains | Auto-enforced |
 
 ---
 
@@ -216,7 +215,6 @@ hemanth/
 |-----|--------------|
 | [SUBMISSION_OVERVIEW.md](docs/SUBMISSION_OVERVIEW.md) | Maps every assignment requirement to files |
 | [APPROACH.md](docs/APPROACH.md) | Step-by-step problem breakdown |
-| [DECISIONS.md](docs/DECISIONS.md) | Key decisions + trade-offs |
 | [AI_USAGE.md](docs/AI_USAGE.md) | AI contribution + 6 mistakes caught |
 | [SCENARIOS.md](docs/SCENARIOS.md) | All 3 scenario types with curl commands |
 | [API_CONTRACT.md](docs/API_CONTRACT.md) | Full API reference + DB schema |
